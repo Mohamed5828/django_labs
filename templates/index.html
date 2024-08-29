@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block content %}
+<div class="container">
+  <h1>Product Form</h1>
+  <form method="post">
+    {% csrf_token %} {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
+
+  <h2>Product List</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Price</th>
+        <th>Stock</th>
+        <th>Details</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for product in data %}
+      <tr>
+        <td>{{ product.OrderID }}</td>
+        <td>{{ product.Product }}</td>
+        <td>{{ product.Quantity }}</td>
+        <td>{{ product.Status }}</td>
+        <td>
+          <a href="{% url 'productDetail' product.OrderID %}">View Details</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr>
+        <td colspan="5">No products available.</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
