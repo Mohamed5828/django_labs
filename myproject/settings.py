@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'mart.apps.MartConfig',
+    'products.apps.ProductsConfig',
     'tracking_system'
 ]
 
