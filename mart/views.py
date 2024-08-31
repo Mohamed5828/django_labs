@@ -4,9 +4,7 @@ from .forms import ProductForm
 from products.models import Product
 
 def index(request):
-    # Fetch only active products from the database
     products = Product.objects.filter(active=True)
-
     if request.method == 'POST':
         form = ProductForm(request.POST)
         if form.is_valid():
