@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'mart.apps.MartConfig',
     'products.apps.ProductsConfig',
-    'tracking_system'
+    'tracking_system',
+    "login.apps.LoginConfig"
 ]
 
 MIDDLEWARE = [
@@ -80,11 +81,15 @@ WSGI_APPLICATION = 'myproject.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        #'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'mohamed',
+        'USER': 'postgres',
+        'PASSWORD': 'password',
+        'HOST': 'mohamed',
+        'PORT': '5432',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
